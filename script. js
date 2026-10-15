@@ -1,0 +1,41 @@
+
+/* GREENFIELD JUNIOR SCHOOL - JAVASCRIPT */
+
+// 1. Mobile navigation menu
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector(".nav");
+
+if (menuButton && navigation) {
+  menuButton.addEventListener("click", function () {
+    const isOpen = navigation.classList.toggle("open");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "✕" : "☰";
+  });
+}
+
+// 2. Automatically display the current year
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
+// 3. Demonstration enquiry form
+const contactForm = document.getElementById("contact-form");
+const formResponse = document.getElementById("form-response");
+
+if (contactForm && formResponse) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const visitorName = document.getElementById("name").value.trim();
+
+    formResponse.textContent =
+      "Thank you, " + visitorName +
+      "! Your demonstration enquiry has been recorded on this page. " +
+      "No message has been sent to the school.";
+
+    contactForm.reset();
+  });
+}
